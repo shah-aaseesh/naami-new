@@ -28,8 +28,11 @@ import { AboutModal } from './components/AboutModal';
 import { CareersModal } from './components/CareersModal';
 
 import { NewsItem } from './types';
+import { LogoScrollIntro } from './components/LogoScrollIntro';
 
 export default function App() {
+  const [introCompleted, setIntroCompleted] = useState(false);
+
   // Modal states
   const [applyModalOpen, setApplyModalOpen] = useState(false);
   const [selectedProgrammeForApply, setSelectedProgrammeForApply] = useState<string | undefined>(undefined);
@@ -72,7 +75,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-paper-texture text-[#1A1A1A] font-sans antialiased selection:bg-[#CC030E] selection:text-white">
       
-      {/* 1. Header & Navigation */}
+      {/* 0. Logo Scroll Intro Transition */}
+      {!introCompleted && (
+        <LogoScrollIntro onComplete={() => setIntroCompleted(true)} />
+      )}
+
+      {/* Main Content Layout (Fixed statically behind intro layer until zoom completes) */}
+      <div className={!introCompleted ? "fixed inset-0 z-0 overflow-hidden pointer-events-auto" : "relative"}>
+        {/* 1. Header & Navigation */}
       <Header
         onOpenApplyModal={handleOpenApplyModal}
         onOpenEnquiryModal={() => setEnquiryModalOpen(true)}
@@ -145,6 +155,7 @@ export default function App() {
         onOpenProgrammeModal={handleOpenProgrammeModal}
         onScrollToSection={handleScrollToSection}
       />
+      </div>
 
       {/* Modals */}
       <ApplyModal
