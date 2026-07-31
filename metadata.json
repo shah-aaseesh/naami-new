@@ -1,0 +1,6 @@
+{
+  "name": "NAMI Education Group",
+  "description": "Official homepage for NAMI Education Group (Naaya Aayam Multi-Disciplinary Institute), connecting School, A-Levels, and UK University Degree Pathways.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
