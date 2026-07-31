@@ -15,6 +15,7 @@ import { CampusLife } from './components/CampusLife';
 import { NewsNotices } from './components/NewsNotices';
 import { CareersTeaser } from './components/CareersTeaser';
 import { Footer } from './components/Footer';
+import { SocialSideWidget } from './components/SocialSideWidget';
 
 // Modals & Drawers
 import { ApplyModal } from './components/ApplyModal';
@@ -132,6 +133,9 @@ export default function App() {
           onOpenApplyModal={handleOpenApplyModal}
         />
       </main>
+
+      {/* Floating Side Widget */}
+      <SocialSideWidget />
 
       {/* 10. Footer Section */}
       <Footer
